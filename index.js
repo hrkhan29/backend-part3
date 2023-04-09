@@ -59,6 +59,7 @@ Person.find({}).then(result => {
   		})
   mongoose.connection.close();
 })
+	return entries;
 })
 
 app.get('/api/persons/:id', (request, response) => {
