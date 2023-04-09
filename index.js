@@ -52,7 +52,7 @@ app.get('/', (request, response) => {
 
 app.get('/api/persons', (request, response) => {
 let entries = {}
-Person.find({}).then(result => return result)
+Person.find({}).then(result => {return result})
   mongoose.connection.close();
 })
 })
