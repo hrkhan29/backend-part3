@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const app = express()
@@ -6,8 +7,9 @@ const cors = require('cors')
 app.use(cors())
 app.use(express.json())
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
+const mongoore = require('mongoose')
 
-let persons = [
+/*let persons = [
     {
       "name": "Arto Hellas",
       "number": "040-123456",
@@ -34,19 +36,24 @@ let persons = [
       "id": 5
     }
   ]
+*/
 
-const inf = '<div>Phonebook has info for ' + persons.length + ' people.</div> <p>' + new Date() + '</p>'
+const Person = require('./models/person')
+
+/*const inf = '<div>Phonebook has info for ' + persons.length + ' people.</div> <p>' + new Date() + '</p>'*/
 
 app.get('/', (request, response) => {
   response.send('<h1>Hello World!</h1>')
 })
 
-app.get('/info', (request, response) => {
+/*app.get('/info', (request, response) => {
   response.send(inf)
-})
+})*/
 
 app.get('/api/persons', (request, response) => {
-  response.json(persons)
+Person.find({}).then(result => return result)
+  mongoose.connection.close()
+})
 })
 
 app.get('/api/persons/:id', (request, response) => {
