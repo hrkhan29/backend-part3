@@ -52,8 +52,7 @@ app.get('/', (request, response) => {
 
 app.get('/api/persons', (request, response) => {
 let entries = {}
-Person.find({}).then(result => { result.forEach(entry => entries.concat(entry))});
-  return entries;
+Person.find({}).then(result => return result)
   mongoose.connection.close();
 })
 })
