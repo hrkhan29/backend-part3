@@ -42,15 +42,15 @@ const Person = require('./models/person')
 
 /*const inf = '<div>Phonebook has info for ' + persons.length + ' people.</div> <p>' + new Date() + '</p>'*/
 
-app.get('/', (request, response) => {
+/*app.get('/', (request, response) => {
   response.send('<h1>Hello World!</h1>')
-})
+})*/
 
 /*app.get('/info', (request, response) => {
   response.send(inf)
 })*/
 
-app.get('/api/persons', (request, response) => {
+app.get('/', (request, response) => {
 let entries = {}
 Person.find({}).then(result => {
   			result.forEach(person => {
