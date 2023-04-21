@@ -2,7 +2,6 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 
 mongoose.set('strictQuery', false)
-/*nst url = 'mongodb+srv://hafiz:1JLGYhYoHhoNYFne@cluster0.cxw2nav.mongodb.net/?retryWrites=true&w=majority'*/
 const url = process.env.MONGODB_URI
 console.log('connecting to', url)
 
